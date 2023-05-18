@@ -1,0 +1,250 @@
+@font-face {
+    font-family: pokemon;
+    src: url('../../font/pokemonSolid.ttf');
+}
+
+.team{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f2dd8c;
+    overflow: hidden;
+}
+
+.teamContainer{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 7%;
+    width: 90%;
+    height: 80%;
+    /* background-color: purple; */
+}
+
+.platform1{
+    position: absolute;
+    width: 25%;
+    height: 45%;
+    left: 0%;
+    top: 45%;
+}
+
+.pokemon1{
+    position: absolute;
+    width: 15%;
+    height: 30%;
+    left: 5%;
+    top: 48%;
+}
+.closeIcon1{
+    position: absolute;
+    width: 2%;
+    height: 4%;
+    left: 5%;
+    top: 48%;
+    cursor: pointer;
+}
+
+.platform2{
+    position: absolute;
+    width: 25%;
+    height: 45%;
+    left: 15%;
+    top: 10%;
+}
+
+.pokemon2{
+    position: absolute;
+    width: 15%;
+    height: 30%;
+    left: 20%;
+    top: 13%;
+}
+.closeIcon2{
+    position: absolute;
+    width: 2%;
+    height: 4%;
+    left: 20%;
+    top: 13%;
+    cursor: pointer;
+}
+
+.platform3{
+    position: absolute;
+    width: 25%;
+    height: 45%;
+    top: 0%;
+}
+
+.pokemon3{
+    /* background-color: red; */
+    position: absolute;
+    width: 15%;
+    height: 30%;
+    top: 1%;
+    left: 43%;
+}
+.closeIcon3{
+    position: absolute;
+    width: 2%;
+    height: 4%;
+    top: 1%;
+    left: 43%;
+    cursor: pointer;
+}
+
+.platform4{
+    position: absolute;
+    width: 25%;
+    height: 45%;
+    right: 15%;
+    top: 10%;
+}
+
+.pokemon4{
+    position: absolute;
+    width: 15%;
+    height: 30%;
+    right: 20%;
+    top: 13%;
+}
+.closeIcon4{
+    position: absolute;
+    width: 2%;
+    height: 4%;
+    right: 20%;
+    top: 13%;
+    cursor: pointer;
+}
+
+.platform5{
+    position: absolute;
+    width: 25%;
+    height: 45%;
+    right: 0%;
+    top: 45%;
+}
+
+.pokemon5{
+    position: absolute;
+    width: 15%;
+    height: 30%;
+    right: 5%;
+    top: 48%;
+}
+.closeIcon5{
+    position: absolute;
+    width: 2%;
+    height: 4%;
+    right: 5%;
+    top: 48%;
+    cursor: pointer;
+}
+
+
+.teamBalanceContainer{
+    /* background-color: yellowgreen; */
+    position: absolute;
+    width: 40%;
+    height: 30%;
+    bottom: 18%;
+}
+
+.teamBalance{
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.balance{
+    /* background-color: beige; */
+    width: 50%;
+    height: 20%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2%;
+}
+
+.stats{
+    position: relative;
+    /* background-color: blueviolet; */
+    width: 70%;
+    height: 40%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 4%;
+    justify-content: center;
+    align-items: center;
+}
+
+.attack{
+    /* background-color: chartreuse; */
+    width: 48%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 4%;
+    justify-content: center;
+    align-items: center;
+}
+
+.defense{
+    /* background-color: coral; */
+    width: 48%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 4%;
+    justify-content: center;
+    align-items: center;
+}
+
+.types{
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    width: 70%;
+    height: 40%;
+    bottom: 2%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2%;
+}
+
+.typeImg{  
+    /* background-color: red; */
+    width: 18%;
+    height: 80%;
+}
+
+.p{
+    position: relative;
+    color: white;
+    font-size: 1.2em;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    text-shadow: 2px 0px #000000,0px 2px #000000, -2px 0px #000000, 0px -2px #000000, 1px 1px #000000, -1px -1px #000000, -1px 1px #000000, 1px -1px #000000;
+}
+
+
+

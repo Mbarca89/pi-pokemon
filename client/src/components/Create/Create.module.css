@@ -1,0 +1,436 @@
+.create{
+    display: flex;
+    background-color: #f2dd8c;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.creator{
+    display: flex;
+    position: relative;
+    top: 0%;
+    width: 65%;
+    height: 65%;
+    border-radius: 25px;
+    /* background-color: aqua; */
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.detail{
+    display: flex;
+    box-shadow: 3px 3px 1px 5px rgb(86, 86, 86, .2);
+    flex-direction: row;
+    position: absolute;
+    border-radius: 15px;
+    /* background-color: rgba(64, 169, 75, 0.7); */
+    width: 90%;
+    height: 90%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.imageContainer{
+    /* background-color: purple; */
+    position: absolute;
+    left: 2%;
+    width: 45%;
+    height: 95%;
+}
+
+.statsContainer{
+    display: flex;
+    flex-direction: column;
+    /* background-color: rebeccapurple; */
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    right: 0;
+    width: 50%;
+    height: 100%;
+}
+
+.cardImg{    
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.nameContainer{
+    /* background-color: red; */
+    
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 20%;
+    align-items: center;
+    justify-content: left;
+}
+
+.name{
+    background-color: transparent;
+    width: 100%;
+    border: none;
+    text-align: center;
+    transition: ease 1s;
+    position: relative;
+    margin-top: 5%;
+    top: 0;
+    font-size: 3em;
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    text-shadow: 2px 0px #000000,0px 2px #000000, -2px 0px #000000, 0px -2px #000000, 1px 1px #000000, -1px -1px #000000, -1px 1px #000000, 1px -1px #000000;
+}
+
+.stats{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    top: 25%;
+    /* background-color: beige; */
+    width: 100%;
+    height: 45%;
+}
+
+.statsNames{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 15%;
+    height: 100%;
+    /* background-color: aquamarine; */
+}
+
+.statsNumbers{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 15%;
+    height: 100%;
+    /* background-color: cadetblue; */
+}
+
+.pTag{
+    position: relative;
+    top: 10%;
+    margin-top: -20%;
+    color: white;
+    font-size: 1.2em;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    text-shadow: 2px 0px #000000,0px 2px #000000, -2px 0px #000000, 0px -2px #000000, 1px 1px #000000, -1px -1px #000000, -1px 1px #000000, 1px -1px #000000;
+}
+
+.bars{
+    /* background-color: blue; */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8%;
+    width: 60%;
+    margin-left: 3%;
+    height: 100%;
+}
+
+.barContainer{
+    border-radius: 30px;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: 10%;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: ease 1s; 
+}
+
+.bar{
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 30px;
+    position: relative;
+    margin-left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(60, 167, 167);
+}
+
+.bar::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background-color: rgb(60, 167, 167);
+    border-radius: 20px;
+    border: none;
+  }
+
+.bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 100%;
+    width: 10%;
+    border-radius: 50px;
+    background: #2b72b9;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+}
+
+.typeContainer{
+    display: flex;
+    position: absolute;
+    border: 10px,solid,white;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.2);
+    /* background-color: yellow; */
+    width: 100%;
+    height: 25%;
+    bottom: 0;
+}
+
+.type1Container{
+    position: relative;
+    width: 50%;
+    height: 100%;
+    /* background-color: yellowgreen; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.typeImg1{
+    position: absolute;
+    bottom: 5%;
+    width: 30%;
+    
+}
+
+.type2Container{
+    position: relative;
+    width: 50%;
+    height: 100%;
+    /* background-color: olivedrab; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.typeImg2{
+    position: absolute;
+    bottom: 5%;
+    width: 30%;
+    
+}
+
+.cardText{
+    
+    position: absolute;
+    top: 0;
+    margin-top: 3%;
+    color: white;
+    font-size: 1.5em;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    text-shadow: 2px 0px #000000,0px 2px #000000, -2px 0px #000000, 0px -2px #000000, 1px 1px #000000, -1px -1px #000000, -1px 1px #000000, 1px -1px #000000;
+}
+
+.buttonContainer{
+    /* background-color: red; */
+    position: absolute;
+    bottom: 4%;
+    width: 70%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    column-gap: 5%;
+    align-items: center;
+    justify-content: center;
+}
+
+.link{
+    padding: 1%;
+    background-color: #ffcb05;
+    box-shadow: 0 0 20px 10px #24536d;
+    color: #2b72b9;
+    text-align: center;
+    line-height: 90%;
+    text-decoration: none;
+    display: inline-block;
+    width: 19%;
+    height: 30%;
+    font-size: 100%;
+    font-family: 'pokemon';
+    letter-spacing: .3em;
+    cursor: pointer;
+    border-radius: 15px;
+    animation: buttonPopIn ease 1.5s;
+}
+
+.link:hover {
+    height: 40%;
+}
+
+.type1MenuContainer{
+    position: absolute;
+    /* background-color: #24536d; */
+    
+    width: 70%;
+    right: 40%;
+    bottom: 25%;
+}
+
+.type1Menu{
+    background-color: rgb(255, 255, 255,.5);
+    border-radius: 15px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.type2MenuContainer{
+    position: absolute;
+    /* background-color: #24536d; */    
+    width: 70%;
+    right: -10%;
+    bottom: 25%;
+}
+
+.type2Menu{
+    background-color: rgb(255, 255, 255,.5);
+    border-radius: 15px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.type1Img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.imageUploader{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 15%;
+    /* background-color: purple; */
+    bottom: 7%;
+    left: 7%;
+}
+
+.imageUploader button{
+    padding: 1%;
+    background-color: #ffcb05;
+    /* box-shadow: 0 0 20px 10px #24536d; */
+    color: #2b72b9;
+    text-align: center;
+    line-height: 90%;
+    text-decoration: none;
+    display: inline-block;
+    width: 40%;
+    height: 55%;
+    font-size: 80%;
+    font-family: 'pokemon';
+    letter-spacing: .3em;
+    cursor: pointer;
+    border-radius: 15px;
+    animation: buttonPopIn ease 1.5s;
+}
+
+.imageUploader button:hover{
+    height: 65%;
+}
+
+input[type='file'] {
+    color: rgba(0, 0, 0, 0)
+  }
+
+  .nameError{
+    z-index: 5;
+    position: absolute;
+	background: #00aabb;
+	border-radius: .4em;
+    top: 13%;
+    right: 10%;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+.nameError:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-top-color: #00aabb;
+	border-bottom: 0;
+	border-left: 0;
+	margin-left: -10px;
+	margin-bottom: -20px;
+}
+.typeError{
+    z-index: 5;
+    position: absolute;
+	background: #00aabb;
+	border-radius: .4em;
+    top: 0%;
+    right: 0%;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+.typeError:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-top-color: #00aabb;
+	border-bottom: 0;
+	border-left: 0;
+	margin-left: -10px;
+	margin-bottom: -20px;
+}
+
+.linkd{
+    padding: 1%;
+    background-color: #ffcb05;
+    /* box-shadow: 0 0 20px 10px #24536d; */
+    color: #2b72b9;
+    text-align: center;
+    line-height: 90%;
+    text-decoration: none;
+    display: inline-block;
+    width: 19%;
+    height: 30%;
+    font-size: 100%;
+    font-family: 'pokemon';
+    letter-spacing: .3em;
+    cursor: not-allowed;
+    border-radius: 15px;
+    animation: buttonPopIn ease 1.5s;
+}
+
+  

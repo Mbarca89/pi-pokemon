@@ -1,0 +1,357 @@
+.parent{
+    display: flex;
+    background-color: #f2dd8c;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.detailContainer{
+    display: flex;
+    position: relative;
+    top: -7%;
+    width: 80%;
+    height: 80%;
+    border-radius: 25px;
+    /* background-color: aqua; */
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.detail{
+    display: flex;
+    box-shadow: 3px 3px 1px 5px rgb(86, 86, 86, .2);
+    flex-direction: row;
+    position: absolute;
+    border-radius: 15px;
+    /* background-color: rgba(64, 169, 75, 0.7); */
+    width: 90%;
+    height: 90%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.imageContainer{
+    /* background-color: purple; */
+    position: absolute;
+    left: 0;
+    width: 50%;
+    height: 100%;
+}
+
+.statsContainer{
+    display: flex;
+    flex-direction: column;
+    /* background-color: rebeccapurple; */
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    right: 0;
+    width: 50%;
+    height: 100%;
+}
+
+.cardImg{    
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.nameContainer{
+    /* background-color: red; */
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 20%;
+    align-items: center;
+    justify-content: left;
+}
+
+.name{
+    transition: ease 1s;
+    position: relative;
+    margin-top: 5%;
+    top: 0;
+    font-size: 3em;
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    text-shadow: 2px 0px #000000,0px 2px #000000, -2px 0px #000000, 0px -2px #000000, 1px 1px #000000, -1px -1px #000000, -1px 1px #000000, 1px -1px #000000;
+}
+
+.stats{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    top: 20%;
+    /* background-color: beige; */
+    width: 100%;
+    height: 35%;
+}
+
+.statsNames{
+    width: 15%;
+    height: 100%;
+    /* background-color: aquamarine; */
+}
+
+.statsNumbers{
+    width: 15%;
+    height: 100%;
+    /* background-color: cadetblue; */
+}
+
+.pTag{
+    transition: ease 1s;
+    margin-top: 26%;
+    color: white;
+    font-size: 1.2em;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    text-shadow: 2px 0px #000000,0px 2px #000000, -2px 0px #000000, 0px -2px #000000, 1px 1px #000000, -1px -1px #000000, -1px 1px #000000, 1px -1px #000000;
+}
+
+.bars{
+    /* background-color: blue; */
+    position: relative;
+    top: 0;
+    width: 70%;
+    height: 100%;
+}
+
+.barContainer{
+    border-radius: 30px;
+    position: relative;
+    margin-top: 4%;
+    width: 100%;
+    max-width: 100%;
+    height: 15%;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: ease 1s; 
+}
+
+.bar{
+    
+    border-radius: 30px;
+    position: relative;
+    margin-left: 0;
+    height: 100%;
+    max-width: 100%;
+    background-color: rgb(60, 167, 167);
+    transition: ease 1s;
+}
+
+.otherStats{
+    position: absolute;
+    top: 55%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    /* background-color: brown; */
+    width: 100%;
+    height: 15%;
+    column-gap: 20%;
+}
+
+.otherTag{
+    color: white;
+    font-size: 1.2em;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    text-shadow: 2px 0px #000000,0px 2px #000000, -2px 0px #000000, 0px -2px #000000, 1px 1px #000000, -1px -1px #000000, -1px 1px #000000, 1px -1px #000000;
+}
+
+
+.typeContainer{
+    display: flex;
+    position: absolute;
+    border: 10px,solid,white;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.2);
+    /* background-color: yellow; */
+    width: 100%;
+    height: 30%;
+    bottom: 0;
+}
+
+.type1Container{
+    position: relative;
+    width: 50%;
+    height: 100%;
+    /* background-color: yellowgreen; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.typeImg1{
+    position: absolute;
+    bottom: 5%;
+    width: 40%;
+    transition: ease 1s;
+}
+
+.type2Container{
+    position: relative;
+    width: 50%;
+    height: 100%;
+    /* background-color: olivedrab; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.typeImg2{
+    position: absolute;
+    bottom: 5%;
+    width: 40%;
+    transition: ease 1s;
+}
+
+.cardText{
+    transition: ease 1s;
+    position: absolute;
+    top: 0;
+    margin-top: 3%;
+    color: white;
+    font-size: 1.5em;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    text-shadow: 2px 0px #000000,0px 2px #000000, -2px 0px #000000, 0px -2px #000000, 1px 1px #000000, -1px -1px #000000, -1px 1px #000000, 1px -1px #000000;
+}
+
+.buttonContainer{
+    /* background-color: red; */
+    position: absolute;
+    bottom: 4%;
+    width: 70%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    column-gap: 5%;
+    align-items: center;
+    justify-content: center;
+}
+
+.link{
+    padding: 1%;
+    background-color: #ffcb05;
+    box-shadow: 0 0 20px 10px #24536d;
+    color: #2b72b9;
+    text-align: center;
+    line-height: 90%;
+    text-decoration: none;
+    display: inline-block;
+    width: 19%;
+    height: 30%;
+    font-size: 100%;
+    font-family: 'pokemon';
+    letter-spacing: .3em;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.link:hover {
+    height: 40%;
+}
+
+.pokeball{
+    z-index: 5;
+    position: absolute;
+    width: 7%;
+    height: 15%;
+    top: 1%;
+    left: 1%;
+    cursor: pointer;
+}
+
+.error{
+    z-index: 2;
+    position: absolute;
+	background: #00aabb;
+	border-radius: .4em;
+    left: 20%;
+    top: 9%;
+    padding-left: 1%;
+    padding-right: 1%;
+    cursor: pointer;
+}
+
+.deleteIcon{
+    z-index: 5;
+    position: absolute;
+    width: 2%;
+    height: 3%;
+    top: 7%;
+    right: 6%;
+    cursor: pointer;
+}
+
+.confirmDeleteContainer{
+    z-index: 5;
+    position: absolute;
+    width: 70%;
+    height: 40%;
+    background-color: #f2dd8c;
+    display: flex;
+    flex-direction: column;
+    gap: 15%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+}
+
+.deleteButtonContainer{
+    /* background-color: red; */
+    width: 100%;
+    height: 25%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+}
+
+.deleteButton{
+    padding: 1%;
+    background-color: #ffcb05;
+    box-shadow: 0 0 20px 10px #24536d;
+    color: #2b72b9;
+    text-align: center;
+    line-height: 90%;
+    text-decoration: none;
+    display: inline-block;
+    width: 40%;
+    height: 100%;
+    font-size: 100%;
+    font-family: 'pokemon';
+    letter-spacing: .3em;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.deleteButton:hover{
+    height: 105%;
+}
+
+.confirmDeleteContainer p {
+    transition: ease 1s;
+    color: white;
+    font-size: 1.5em;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    text-shadow: 2px 0px #000000,0px 2px #000000, -2px 0px #000000, 0px -2px #000000, 1px 1px #000000, -1px -1px #000000, -1px 1px #000000, 1px -1px #000000;
+}
