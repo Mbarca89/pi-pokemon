@@ -3,6 +3,7 @@ const {API_URL} = process.env
 const { Type, Pokemon } = require('../db')
 
 let apiPokes = []
+let nextUrl = API_URL
 
 const getPokemonsFromApi = async () => {
 
@@ -20,7 +21,7 @@ const getPokemonsFromApi = async () => {
     return error.message
   }
 
-  let nextUrl = API_URL
+  
   try {
     
       const { data } = await axios(`${nextUrl}?limit=20`);
