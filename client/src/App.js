@@ -9,6 +9,8 @@ import Landing from './components/Landing/Landing'
 import Card from './components/Card/Card'
 import Filters from './components/Filters/Filters';
 import Create from './components/Create/Create'
+import Update from './components/Update/Update'
+import NotFound from './components/NotFound/NotFound'
 const style = require('./App.module.css')
 
 function App() {
@@ -17,6 +19,7 @@ function App() {
       <div className={style.App}>
          <Filters></Filters>
          <Routes>
+            <Route path='*' element={<NotFound />}/>
             <Route element={(
                <>
                   <Nav />
@@ -26,6 +29,7 @@ function App() {
                <Route path='/home' element={<Home />} />
                <Route path='/team' element={<Team />} />
                <Route path='/create' element={<Create />} />
+               <Route path='/update/:id' element={<Update/>} />
             </Route>
             <Route path='/detail/:id' element={<Detail />} />
             <Route path='/login' element={<Login />} />

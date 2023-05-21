@@ -58,25 +58,3 @@ export const filter = (isFiltered, results) => {
    };
 }
 
-
-// export const removeFav = (id) => {
-//     const endpoint = 'http://localhost:3001/rickandmorty/fav/' + id;
-//    return async (dispatch) => {
-//       const {data} = await axios.delete(endpoint)
-      
-//          return dispatch({
-//             type: REMOVE_FAV,
-//             payload: data,
-//       });
-      
-//    };
-//     // return {type: REMOVE_FAV, payload: id}
-// }
-
-// export const filterCards = (gender) => {
-//     return {type: FILTER, payload: gender}
-// }
-
-// export const orderCards = (ord) => {
-//     return {type: ORDER, payload: ord }
-// }

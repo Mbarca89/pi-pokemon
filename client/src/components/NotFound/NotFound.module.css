@@ -1,0 +1,32 @@
+.container{
+    display: flex;
+    background-color: #f2dd8c;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.norFound{
+    position: absolute;
+    width: 40%;
+    height: 50%;
+}
+
+.p{
+    background-color: transparent;
+    width: 100%;
+    border: none;
+    text-align: center;
+    transition: ease 1s;
+    position: relative;
+    margin-top: 5%;
+    top: 0;
+    font-size: 3em;
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    text-shadow: 2px 0px #000000,0px 2px #000000, -2px 0px #000000, 0px -2px #000000, 1px 1px #000000, -1px -1px #000000, -1px 1px #000000, 1px -1px #000000;
+}

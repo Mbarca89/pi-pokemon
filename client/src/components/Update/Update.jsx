@@ -1,4 +1,4 @@
-import style from './Create.module.css'
+import style from './Update.module.css'
 import noImage from '../../img/noimage.png'
 import none from '../../img/none.png'
 import Validations from './validations'
@@ -6,68 +6,68 @@ import { getPokemons } from '../../redux/actions'
 import { typesImage, backColor } from '../../utils/types'
 import { useState, useRef, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 const URL = process.env.REACT_APP_URL
 const API_KEY = process.env.REACT_APP_API_KEY
 const SERVER_URL = process.env.REACT_APP_SERVER_URL
 
-const Create = () => {
+const Update = () => {
     //DECLARACION DE VARIABLES
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const inputRef = useRef(null)
-    const isLoggedIn = useSelector(state => state.isLoggedIn)
     const userId = useSelector(state => state.currentUser)
+    const pokemons = useSelector(state => state.allPokemons)
     const [background, setBackground] = useState('#ffcb05')
     const [type1Img, settype1Img] = useState('')
     const [type2Img, settype2Img] = useState('')
     const [menu1, setMenu1] = useState(false)
     const [menu2, setMenu2] = useState(false)
-    const [type1State, setType1State] = useState(false)
+    const [type1State, setType1State] = useState(true)
     const [file, setFile] = useState()
     const [errors, setErrors] = useState({
         name: '',
-        nameDisabled: true,
+        nameDisabled: false,
         type: '',
-        typeDisabled: true
+        typeDisabled: false
     })
-    let isDisabled = true
-    const [duplicated,setDuplicated] = useState({
-        error:'',
-        isDuplicated: false
-    })
-
+    let isDisabled = false
+    const { id } = useParams();
+    const pokemonIndex = pokemons.findIndex(pokemon => pokemon.pokeId === Number(id))
+    const pokemon = pokemons[pokemonIndex]
     //-------------------------------------------------------------
 
-    //SI NO HAY UN USUARIO LOGUEADO, NAVEGO HACIA EL LOGIN
-    useEffect(() => {
-        !isLoggedIn && navigate('/login')
+    //SETEO CON LOS VALORES DEL POKEMON A EDITAR
+    useEffect(()=>{
+        setBackground(backColor[pokemon.type.type1.name])
+        settype1Img(pokemon.type.type1.name)
+        pokemon.type.type2.name && settype2Img(pokemon.type.type2.name)
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isLoggedIn])
+    },[])
+    //------------------------------------------------------------------
 
-    //-------------------------------------------------------------
-
-    //DEFINO UN DEFAULT PARA EL FORMULARIO
+    //LLENO EL FORMULARIO CON LOS DATOS DEL POKEMON A EDITAR
     const [pokemonData, setPokemonData] = useState({
-        name: '',
-        hp: 50,
-        attack: 50,
-        defense: 50,
-        speed: 50,
-        height: 50,
-        weight: 500,
-        image: '',
-        type: {
-            type1: 'TIPO 1',
-            type2: 'TIPO 2'
+        pokeId:id,
+        name:pokemon.name,
+        hp:pokemon.hp,
+        attack:pokemon.attack,
+        defense:pokemon.defense,
+        speed:pokemon.speed,
+        height:pokemon.height,
+        weight:pokemon.weight,
+        image:pokemon.image,
+        type:{
+            type1:pokemon.type.type1.name,
+            type2:pokemon.type.type2.name
         },
         eventName: '',
         userId: userId.id
     })
 
     //-----------------------------------------------------------
-
+    
     //LLAMO A LA FUNCION DE VALIDACION CADA VEZ QUE HAY UN CAMBIO EN ALGUN CAMPO
     useEffect(() => {
         let val = Validations(pokemonData, pokemonData.eventName)
@@ -97,10 +97,6 @@ const Create = () => {
             [event.target.name]: event.target.value,
             eventName: event.target.name
         })
-        setDuplicated({
-            error:'',
-            isDuplicated:false
-        })
     }
     //-------------------------------------------------------
 
@@ -116,7 +112,7 @@ const Create = () => {
     }
     //--------------------------------------------------------
 
-    //FUNCION DEL TIPO 1. ACTUALIZA EL VALOR DEL POKEMON A CREAR, SETEA EL COLOR DEL FONDO, CIERRA EL MENU
+    //FUNCION DEL TIPO 1. ACTUALIZA EL VALOR DEL POKEMON, SETEA EL COLOR DEL FONDO, CIERRA EL MENU
     //SETEA LA IMAGEN DEL TIPO UNO Y EL ESTADO PARA HABILITAR LA ELECCION DLE TIPO 2
     const type1Handler = (event) => {
         let typeName = event.target.name
@@ -132,7 +128,7 @@ const Create = () => {
     }
     //---------------------------------------------------------------
 
-    //FUNCION DEL TIPO 2. ACTUALIZA EL VALOR DEL POKEMON A CREAR, CIERRA EL MENU, SETEA LA IMAGEN DEL TIPO 2
+    //FUNCION DEL TIPO 2. ACTUALIZA EL VALOR DEL POKEMON, CIERRA EL MENU, SETEA LA IMAGEN DEL TIPO 2
     const type2Handler = (event) => {
         let typeName = event.target.name
         setPokemonData({
@@ -171,20 +167,12 @@ const Create = () => {
     //---------------------------------------------------------------------------
 
     //MANEJO DEL SUBMIT DEL FORMULARIO.
-    //AGREGO AL POKEMON LA ID DEL USUARIO QUE LO CREA
-    // CREO EL POKEMON EN LA BD, ACTUALIZO LA LISTA DE POKEMONES
-    // A MOSTRAR Y REDIRECCIONO AL HOME.
+    // ACTUALIZO EL POKEMON, ACTUALIZO LA LISTA DE POKEMONES
+    // REDIRECCIONO AL HOME.
     const handleSubmit = async () => {
-        try {
-            await axios.post(`${SERVER_URL}/pokemons`, pokemonData)
-            dispatch(getPokemons())
-            navigate(`../home`)    
-        } catch (error) {
-            setDuplicated({
-                error:error.response.data,
-                isDuplicated:true
-            })
-        }
+        await axios.post(`${SERVER_URL}/pokemons/update`, pokemonData)
+        dispatch(getPokemons())
+        navigate(`../home`)
     }
     //-------------------------------------------------------------------------
 
@@ -192,11 +180,10 @@ const Create = () => {
     if (!errors.nameDisabled && !errors.typeDisabled) isDisabled = false
     else isDisabled = true
     //----------------------------------------------------------------------   
-    
+
     return (
         <div className={style.create}>
             {errors.name && <div className={style.nameError}> <p>{errors.name}</p></div>}
-            {duplicated.isDuplicated && <div className={style.duplicatedError}><p>{duplicated.error}</p></div>}
             <div style={{ backgroundColor: background }} className={style.creator}>
                 <div className={style.detail}>
                     <div className={style.imageContainer}>
@@ -252,7 +239,7 @@ const Create = () => {
                                 <img className={style.typeImg1} src={typesImage[type1Img]} alt=''></img>
                             </div>
                             {type1State && <div className={style.type2Container} onClick={openMenu2}>
-                                <p className={style.cardText}>{pokemonData.type.type2}</p>
+                                <p className={style.cardText}>{pokemonData.type.type2?pokemonData.type.type2:'TIPO 2'}</p>
                                 <img className={style.typeImg2} src={typesImage[type2Img]} alt=''></img>
                             </div>}
                         </div>
@@ -310,10 +297,10 @@ const Create = () => {
                 </div>
             </div>
             <div className={style.buttonContainer}>
-                <NavLink className={isDisabled ? style.linkd : style.link} onClick={!isDisabled && handleSubmit}>Crear</NavLink>
+                <NavLink className={isDisabled ? style.linkd : style.link} onClick={!isDisabled && handleSubmit}>Actualizar</NavLink>
             </div>
         </div>
     )
 }
 
-export default Create
+export default Update

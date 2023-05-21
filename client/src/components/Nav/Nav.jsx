@@ -15,7 +15,7 @@ const Nav = () => {
     //SIMULA EL DESLOGUEO DEL USUARIO Y DEBERIA NAVEGAR AL INICIO PERO NO FUNCIONA
     const logoutHandler = () => {
         dispatch(loginUser(false))
-        navigate('/')
+        navigate('/home')
     }
     //-----------------------------------------------------------
 

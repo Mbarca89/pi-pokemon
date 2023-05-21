@@ -355,3 +355,13 @@
     letter-spacing: .05em;
     text-shadow: 2px 0px #000000,0px 2px #000000, -2px 0px #000000, 0px -2px #000000, 1px 1px #000000, -1px -1px #000000, -1px 1px #000000, 1px -1px #000000;
 }
+
+.editIcon{
+    z-index: 5;
+    position: absolute;
+    width: 3%;
+    height: 4%;
+    top: 6.5%;
+    right: 9%;
+    cursor: pointer;
+}

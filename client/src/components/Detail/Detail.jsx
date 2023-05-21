@@ -8,6 +8,7 @@ import noImage from '../../img/noimage.png'
 import opened from '../../img/opened.png'
 import closed from '../../img/closed.png'
 import deleteIcon from '../../img/close.png'
+import editIcon from '../../img/edit.png'
 import axios from 'axios'
 const SERVER_URL = process.env.REACT_APP_SERVER_URL
 
@@ -28,14 +29,14 @@ const Detail = () => {
         message: ""
     })
     const { id } = useParams();
-    const pokemonIndex = pokemons.findIndex(pokemon => pokemon.pokeId === Number(id))
-    const pokemon = pokemons[pokemonIndex]
+    let pokemonIndex = pokemons.findIndex(pokemon => pokemon.pokeId === Number(id))
+    let pokemon = pokemons[pokemonIndex]
     let next = pokemons.length
     let previous = 1
     const dispatch = useDispatch()
     const navigate = useNavigate()
     //----------------------------------------------------------------------------------
-
+ 
     //LIMPIO LOS ESTADOS AL DESMONTAR Y ACTUALIZO EL ESTADO GLOBAL CON LOS POQUEMOKES QUE HAYA AGREGADO O QUITADO DEL EQUIPO
     useEffect(() => {
         return () => {
@@ -50,6 +51,8 @@ const Detail = () => {
                 }
             }
             getTeam()
+            pokemonIndex = undefined
+            pokemon = undefined
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
@@ -114,13 +117,18 @@ const Detail = () => {
             dispatch(getPokemons())
             navigate(`../home`)
         }
-
     }
+
+    const editHandler = () => {
+        navigate(`../update/${id}`)
+    }
+
     return (
         <div className={style.parent}>
             {showError.show && <p onClick={closeError} className={style.error}>{showError.message}</p>}
             <div style={pokemon.type.type1 && { backgroundColor: backColor[pokemon.type.type1.name] }} className={style.detailContainer}>
                 {deleteOk && <img className={style.deleteIcon} src={deleteIcon} alt="" onClick={deleteHandler} />}
+                {deleteOk && <img className={style.editIcon} src={editIcon} alt="" onClick={editHandler}/>}
                 {confirmDelete && <div className={style.confirmDeleteContainer}>
 
                     <p>¿Estás seguro de querer eliminar a "{pokemon.name}"?</p>

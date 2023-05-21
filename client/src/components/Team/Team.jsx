@@ -1,6 +1,7 @@
 import style from './Team.module.css'
 import platform from '../../img/platform.png'
 import closeIcon from '../../img/close.png'
+import noImage from '../../img/noimage.png'
 import { useSelector, useDispatch } from 'react-redux'
 import { useState, useEffect, } from 'react';
 import { typesImage } from '../../utils/types'
@@ -76,7 +77,7 @@ const Team = () => {
     const getAttack = () => {
         let suma = 0
         pokemons.map(pokemon => {
-            suma = suma = Number(pokemon.attack)
+            suma = suma + Number(pokemon.attack)
             return null
         })
         setAttack(suma)
@@ -107,15 +108,15 @@ const Team = () => {
         <div className={style.team}>
             <div className={style.teamContainer}>
                 <img className={style.platform1} src={platform} alt="" />
-                {pokemons[0] && (<div><img className={style.pokemon1} src={pokemons[0] && pokemons[0].image} alt="" /><img src={closeIcon} alt='' className={style.closeIcon1} onClick={() => teamHandler(pokemons[0].pokeId)}></img></div>)}
+                {pokemons[0] && (<div><img className={style.pokemon1} src={pokemons[0].image ? pokemons[0].image : noImage} alt="" /><img src={closeIcon} alt='' className={style.closeIcon1} onClick={() => teamHandler(pokemons[0].pokeId)}></img></div>)}
                 <img className={style.platform2} src={platform} alt="" />
-                {pokemons[1] && (<div><img className={style.pokemon2} src={pokemons[1] && pokemons[1].image} alt="" /><img src={closeIcon} alt='' className={style.closeIcon2} onClick={() => teamHandler(pokemons[1].pokeId)}></img></div>)}
+                {pokemons[1] && (<div><img className={style.pokemon2} src={pokemons[1].image ? pokemons[1].image : noImage} alt="" /><img src={closeIcon} alt='' className={style.closeIcon2} onClick={() => teamHandler(pokemons[1].pokeId)}></img></div>)}
                 <img className={style.platform3} src={platform} alt="" />
-                {pokemons[2] && (<div><img className={style.pokemon3} src={pokemons[2] && pokemons[2].image} alt="" /><img src={closeIcon} alt='' className={style.closeIcon3} onClick={() => teamHandler(pokemons[2].pokeId)}></img></div>)}
+                {pokemons[2] && (<div><img className={style.pokemon3} src={pokemons[2].image ? pokemons[2].image : noImage} alt="" /><img src={closeIcon} alt='' className={style.closeIcon3} onClick={() => teamHandler(pokemons[2].pokeId)}></img></div>)}
                 <img className={style.platform4} src={platform} alt="" />
-                {pokemons[3] && (<div><img className={style.pokemon4} src={pokemons[3] && pokemons[3].image} alt="" /><img src={closeIcon} alt='' className={style.closeIcon4} onClick={() => teamHandler(pokemons[3].pokeId)}></img></div>)}
+                {pokemons[3] && (<div><img className={style.pokemon4} src={pokemons[3].image ? pokemons[3].image : noImage} alt="" /><img src={closeIcon} alt='' className={style.closeIcon4} onClick={() => teamHandler(pokemons[3].pokeId)}></img></div>)}
                 <img className={style.platform5} src={platform} alt="" />
-                {pokemons[4] && (<div><img className={style.pokemon5} src={pokemons[4] && pokemons[4].image} alt="" /><img src={closeIcon} alt='' className={style.closeIcon5} onClick={() => teamHandler(pokemons[4].pokeId)}></img></div>)}
+                {pokemons[4] && (<div><img className={style.pokemon5} src={pokemons[4].image ? pokemons[4].image : noImage} alt="" /><img src={closeIcon} alt='' className={style.closeIcon5} onClick={() => teamHandler(pokemons[4].pokeId)}></img></div>)}
             </div>
             <div className={style.teamBalanceContainer}>
                 <div className={style.teamBalance}>
