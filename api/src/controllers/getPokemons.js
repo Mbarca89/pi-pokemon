@@ -23,7 +23,7 @@ const getPokemonsFromApi = async () => {
   let nextUrl = API_URL
   try {
     while (nextUrl) {
-      const { data } = await axios(`${nextUrl}?limit=650`);
+      const { data } = await axios(`${nextUrl}?limit=1281`);
       if (!data) throw Error('Error en la API');
 
       const promises = data.results.map(async (result) => {
