@@ -18,8 +18,10 @@ const getPokemonsFromTeam = async (req, res) => {
     const results = pokemons.map(pokemon => {
       const { types, ...otherAttributes } = pokemon.get();
       let typeNames = []
-      if (pokemon.types[0].pokemon_type.createdAt > pokemon.types[1].pokemon_type.createdAt) typeNames = [types[1].name, types[0].name];
-      else typeNames = [types[0].name, types[1].name];
+      if(pokemon.types[1]){
+        if (pokemon.types[0].pokemon_type.createdAt > pokemon.types[1].pokemon_type.createdAt) typeNames = [types[1].name, types[0].name];
+        else typeNames = [types[0].name, types[1].name];
+      }else typeNames = [types[0].name]
       return {
         ...otherAttributes,
         type: { type1: { name: typeNames[0] }, type2: { name: typeNames[1] } }

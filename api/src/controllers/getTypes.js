@@ -1,10 +1,10 @@
 const axios = require('axios');
-const {API_URL} = process.env
+const {API_TYPE_URL} = process.env
 const { Type } = require('../db')
 
 const getTypes = async (req, res) => {
   try {
-    const { data } = await axios(API_URL)
+    const { data } = await axios(API_TYPE_URL)
     const types = data.results
     await Promise.all(types.map(async (type) => {
       const { data } = await axios(type.url);

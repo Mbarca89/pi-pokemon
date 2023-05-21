@@ -8,7 +8,6 @@ const createPokemon = async (req, res) => {
         const count = data.count
 
         const { name, image, hp, attack, defense, speed, height, weight, type, userId } = req.body
-        console.log(req.body)
         if (!name || !hp || !attack || !defense) {
             return res.status(400).send({ message: 'Faltan Datos' })
         }
@@ -21,9 +20,10 @@ const createPokemon = async (req, res) => {
 
         const isInDb = true
 
-        const pokemon = await Pokemon.create({ pokeId, name, image, hp, attack, defense, speed, height, weight, isInDb, userId })
-        await pokemon.addType(type1)
-        await pokemon.addType(type2)
+        const [pokemon,created] = await Pokemon.findOrCreate({where:{name}, defaults:{ pokeId, name, image, hp, attack, defense, speed, height, weight, isInDb, userId }})
+        if(!created) throw Error (`El pokemon ${pokemon.name} ya existe!`)
+        type1 && await pokemon.addType(type1)
+        type2 && await pokemon.addType(type2)
         return res.status(201).json({ message: 'El pokemon fue creado correctamente!', result: pokemon })
     } catch (error) {
         return res.status(400).send(error.message)
