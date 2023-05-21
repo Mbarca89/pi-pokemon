@@ -22,8 +22,8 @@ const getPokemonsFromApi = async () => {
 
   let nextUrl = API_URL
   try {
-    while (nextUrl) {
-      const { data } = await axios(`${nextUrl}?limit=650`);
+    
+      const { data } = await axios(`${nextUrl}?limit=20`);
       if (!data) throw Error('Error en la API');
 
       const promises = data.results.map(async (result) => {
@@ -55,7 +55,7 @@ const getPokemonsFromApi = async () => {
       apiPokes.push(...pokemonsData)
 
       nextUrl = data.next
-    }
+    
     console.log(`Pokemones Obtenidos de la API con exito!`)
     apiCount = 1
     return apiPokes
