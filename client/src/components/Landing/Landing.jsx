@@ -15,10 +15,10 @@ const Landing = () => {
     //CUANDO SE RENDERIZA EL COMPONENTE, HAGO UN PEDIDO AL SERVIDOR PARA TRAER LOS POKEMONES
     useEffect(() => {
         dispatch(getPokemons())
-        const getTypes = async () => {
-            await axios(`${SERVER_URL}/pokemons/types`)
-        }
-        getTypes()
+//         const getTypes = async () => {
+//             await axios(`${SERVER_URL}/pokemons/types`)
+//         }
+//         getTypes()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     //----------------------------------------------------------------------
