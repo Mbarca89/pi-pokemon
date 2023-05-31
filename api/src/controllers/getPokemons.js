@@ -1,6 +1,7 @@
 const axios = require('axios');
 const {API_URL} = process.env
 const { Type, Pokemon } = require('../db')
+const apiPokemonsMocked = require('./pokemonData.json')
 
 let apiPokes = []
 let nextUrl = API_URL
@@ -99,9 +100,10 @@ const getPokemonsFromDb = async () => {
 
 const getPokemons = async (req, res) => {
   try {
-    const pokemonsApi = await getPokemonsFromApi()
+    // const pokemonsApi = await getPokemonsFromApi()
     const pokemonsDb = await getPokemonsFromDb()
-    const allPokemons = [...pokemonsApi, ...pokemonsDb]
+    // const allPokemons = [...pokemonsApi, ...pokemonsDb]
+    const allPokemons = [...apiPokemonsMocked, ...pokemonsDb]
     console.log(`se cargaron ${allPokemons.length} Pokemons en total!`)
     res.status(200).json(allPokemons)
 
